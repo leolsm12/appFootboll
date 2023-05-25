@@ -1,10 +1,18 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { AppService } from './app.service';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
-export class AppComponent {
-  title = 'footboll';
+export class AppComponent implements OnInit {
+  constructor(private appService: AppService) { }
+
+  ngOnInit(): void{
+    this.appService.geturl().subscribe((response)=>{
+      console.log(response);
+    })
+  }
+  
 }

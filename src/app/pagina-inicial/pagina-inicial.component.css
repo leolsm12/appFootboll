@@ -1,0 +1,14 @@
+
+.input-group{
+    width: 300px;
+    margin-left: 20px;
+
+    
+}
+.btn {
+    color: white;
+    background-color: rgb(180, 180, 180);
+}
+.btn:active{
+    background-color: aquamarine;
+}
