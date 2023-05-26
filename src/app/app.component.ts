@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { AppService } from './app.service';
+import { Router } from '@angular/router';
+import { AuthService } from './auth.service';
 
 @Component({
   selector: 'app-root',
@@ -7,12 +9,16 @@ import { AppService } from './app.service';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent implements OnInit {
-  constructor(private appService: AppService) { }
+  constructor(
+    private router: Router,
+    private service: AuthService,
+    
+    ) { }
 
-  ngOnInit(): void{
-    this.appService.geturl().subscribe((response)=>{
-      console.log(response);
-    })
+  ngOnInit(){
+    if(!this.service.getToken()){
+      this.router.navigate(['./pesquisa']);
+    }
   }
   
 }
